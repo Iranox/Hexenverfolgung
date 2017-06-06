@@ -1,0 +1,8 @@
+.timeline rect {
+    fill: steelblue;
+}
+.timeline text {
+    fill: white;
+    font: 10px sans-serif;
+    text-anchor: end;
+}
