@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .timeline rect {
+                fill: steelblue;
+            }
+            .timeline text {
+                fill: white;
+                font: 10px sans-serif;
+                text-anchor: end;
+            }
+        </style>
+    </head>
+    <body>
+        <svg id="timeline" class = "timeline" xmlns="http://www.w3.org/2000/svg" version="1.1" style="padding:50px">
+		   <line xmlns="http://www.w3.org/2000/svg" x1="0" x2="400" y1="199" y2="199" style="stroke:rgb(0, 0, 0); stroke-width:3px; z-index:1"></line>
+		</svg>
+		<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+        <script src="vendor/d3/d3.v4.min.js"></script>
+        <script src="js/timeline.js"></script>
+		<script src="js/dataLoader"/>
+		<script>
+		    console.log("HI")
+		    var dataLoader = new DataLoader();
+			dataLoader.loadExecutions()
+		</script>
+    </body>
+</html>
