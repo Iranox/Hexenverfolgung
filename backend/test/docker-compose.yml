@@ -1,3 +1,22 @@
+nginx:
+  image: prooph/nginx:www
+  ports:
+      - "8080:80"
+      - "443:443"
+  links:
+    - php:php
+  volumes_from:
+    - dataphp
+php:
+  image: prooph/php:7.0-fpm
+  links:
+    - mongodb:mongodb
+  volumes_from:
+    - dataphp
+dataphp:
+  image: debian:jessie
+  volumes:
+    - ./../src/api:/var/www/html
 mongodb:
  image: mongo
  ports:
