@@ -8,14 +8,15 @@
         <script src="js/timeline.js"></script>
         <script src="js/dataLoader.js"></script>
         <script>
-            var svg = document.createElementNS('http://www.w3.org/2000/svg', "svg");
-            svg.setAttribute("class", "timeline");
-            document.getElementsByTagName("body")[0].appendChild(svg);
+            var div = document.createElement("div");
+            div.setAttribute("class", "timeline");
+            div.setAttribute("style", "width: 800px; height:400px");
+            document.getElementsByTagName("body")[0].appendChild(div);
             drawTimeline = function(executions){
                 var range = {};
                 range.start = 1400;
                 range.end = 1800;
-                var timeline = new Timeline(svg, executions, range);
+                var timeline = new Timeline(div, executions, range);
             };
             var dataLoader = DataLoader(drawTimeline);
             dataLoader.loadExecutions();
