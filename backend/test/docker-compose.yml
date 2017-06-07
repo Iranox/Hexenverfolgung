@@ -1,5 +1,5 @@
 nginx:
-  image: prooph/nginx:www
+  image: nginx
   ports:
       - "8080:80"
       - "443:443"
@@ -16,7 +16,8 @@ php:
 dataphp:
   image: debian:jessie
   volumes:
-    - ./../src/api:/var/www/html
+    - ./conf:/etc/nginx/conf.d
+    - ./../src/api:/code
 mongodb:
  image: mongo
  ports:
