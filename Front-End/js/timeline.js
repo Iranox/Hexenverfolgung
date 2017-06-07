@@ -9,7 +9,9 @@ var Timeline = function(div, executions, range){
     if(timeline.style("position") === "static"){
         timeline.style("position","relative");  //TODO throw error
     }
-
+    var dataLabel = timeline.append("p");
+    dataLabel.attr("style", "position:absolute; bottom:0px; left:50%; height:25px; margin:0px")
+            .html("XXXX:YY");
     var startLabel = timeline.append("p");
     startLabel.attr("style", "position:absolute; bottom:0px; left:0px; height:25px; margin:0px");
     startLabel.html(range.start);
@@ -51,8 +53,10 @@ var Timeline = function(div, executions, range){
                 .attr("x", function(d){return -scaleXpos(d[0]) + "%";})
                 .attr("y", "-100%")
                 .attr("transform", "rotate(180)")
-                .attr("width", 1)
-                .attr("height", function(d){return scaleHeight(d[1]) + "%";});
+                .attr("width", 3)
+                .attr("height", function(d){return scaleHeight(d[1]) + "%";})
+                .on("mouseover", refreshDataLabel)
+                .on("mouseout", resetDataLabel);
     };
 
     function drawLine(){
@@ -62,6 +66,14 @@ var Timeline = function(div, executions, range){
             .attr("y1", "100%")
             .attr("y2", "100%")
             .attr("style", "stroke:rgb(0, 0, 0); stroke-width:3px; z-index:1");
+    };
+    
+    function refreshDataLabel(d){
+        dataLabel.html(d[0] + ":" + d[1]);
+    };
+    
+    function resetDataLabel(){
+        dataLabel.html("XXXX:YY");
     }
     return this;
 };
