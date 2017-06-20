@@ -1,17 +1,69 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+    <!--    <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Witch-Hunt</title>
         <link rel="stylesheet" type="text/css" href="css/diagramms.css">
+        <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap-theme.min.css">
+        <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     </head>
     <body>
         <script src="vendor/d3/d3.v4.min.js"></script>
         <script src="js/timeline.js"></script>
         <script src="js/dataLoader.js"></script>
+        <div class="jumbotron text-center">
+            <h1>The Witch Hunts</h1>
+            <p>A statistical overview of recorded Witch Hunts</p>
+        </div>
+        <div class="row">
+            <div id="witch-map" class="col-md-12">TEST</div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div id="witch-bar-chart"></div>
+            </div>
+            <div id="witch-table" class="col-md-4">
+                <table class="table-striped table-bordered" style="width:100%; height: 100%">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Charges</th>
+                            <th>Penalty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jesusta Christa</td>
+                            <td>turned water into wine</td>
+                            <td>death</td>
+                        </tr>
+                        <tr>
+                            <td>Kefka Palazzo</td>
+                            <td>obvious use of magic and is a clown</td>
+                            <td>death</td>
+                        </tr>
+                        <tr>
+                            <td>Sephiroth</td>
+                            <td>that hair is not natural</td>
+                            <td>death</td>
+                        </tr>
+                        <tr>
+                            <td>Adolfus Hiatla</td>
+                            <td>I guess he was jewish</td>
+                            <td>death</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
         <script>
-            var div = document.createElement("div");
+            var div = document.getElementById("witch-bar-chart");
             div.setAttribute("class", "timeline");
-            div.setAttribute("style", "width: 800px; height:400px");
-            document.getElementsByTagName("body")[0].appendChild(div);
+            div.setAttribute("style", "height:400px");
             drawTimeline = function(executions){
                 var range = {};
                 range.start = 1400;
