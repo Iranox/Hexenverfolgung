@@ -1,4 +1,61 @@
 <?php
- 
+require "../../vendor/autoload.php";
 
-?>
+class MongoLoader
+{
+    function __construct($uri){
+        $this->uri = $uri;
+        $this->collection = (new MongoDB\Client($this->uri))->hexenverfolgung->verfolgung;
+    }
+
+    public function insertDocuments($data){
+        for ($i = 0; $i < count($data); $i++) {
+            $this->collection->insertMany([$data[$i]]);
+        }
+    }
+
+    public function getAllDocuments(){
+        $reponse = $this->collection->find();
+        $result = $this->resultToArray($reponse);
+        return json_encode($result);
+    }
+
+    public function getDocumentsIntervall($von,$bis){
+        $reponse = $this->collection->aggregate([
+            ['$match' =>
+                ['Jahr' => ['$gte' => $von, '$lte' => $bis]]
+            ]
+        ]);
+        $result = $this->resultToArray($reponse);
+        return $result;
+    }
+
+    public function getAllVerdict(){
+        $reponse = $this->collection->aggregate([
+            ['$project' =>
+                ['Urteilsspruch' => 1, 'Gestorben'=>1]
+            ]
+        ]);
+        $result = $this->resultToArray($reponse);
+
+        return $result;
+    }
+
+    function __destruct(){
+        unset($this->uri);
+        unset($this->collection);
+    }
+
+    /**
+     * @param $reponse
+     * @return array
+     */
+    private function resultToArray($reponse){
+        $result = array();
+        foreach ($reponse as $entry) {
+            array_push($result, $entry);
+        }
+        return $result;
+    }
+}
+
