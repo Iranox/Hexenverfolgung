@@ -18,6 +18,7 @@ dataphp:
   volumes:
     - ./conf:/etc/nginx/conf.d
     - ./../src/api:/code
+    - ./../src/vendor:/vendor
 mongodb:
  image: mongo
  ports:
