@@ -1,27 +1,46 @@
 <?php
-require '../vendor/autoload.php'; // include Composer's autoloader
+require "../../vendor/autoload.php"; // include Composer's autoloader
 
 class CSVParser{
     private function loadCSV($file)
     {
-        $csv = array_map('str_getcsv', file($file));
-        array_walk($csv, function (&$a) use ($csv) {
-            $a = array_combine($csv[0], $a);
-        });
-        array_shift($csv); # remove column header
-        return $csv;
+        if (($handle = fopen($file,'r')) === false) {
+            die('Error opening file');
+        }
+
+        $headers = fgetcsv($handle, 1024, ',');
+        $complete = array();
+
+        while ($row = fgetcsv($handle, 1024, ',')) {
+            $tmp = array();
+            foreach ($row as $a){
+                if (!preg_match('/^(\+|\-)?[0-9]+((e|E)[0-9]+)?$/', $a)) {
+                     array_push($tmp,$a);
+
+                } else {
+                    $int = (int) $a;
+                    array_push($tmp,$int);
+                }
+
+            }
+            $complete[] = array_combine($headers, $tmp);
+        }
+
+        fclose($handle);
+
+        return $complete;
     }
 
     public function parse($file)
     {
-        return $this->loadCSV($file);
+         return $this->loadCSV($file);
     }
 }
 
 class MongoLoader{
-    public function insertDocuments($data)
+    public function insertDocuments($data,$uri)
     {
-        $client = new MongoDB\Client("mongodb://localhost:27017");
+        $client = new MongoDB\Client($uri);
         $collection = $client->hexenverfolgung->verfolgung;
 
         for ($i = 0; $i < count($data); $i++) {

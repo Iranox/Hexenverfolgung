@@ -1,8 +1,9 @@
 <?php
-require 'MongoDBLoader.php'; // include Composer's autoloader
+require 'MongoDBLoader.php';
+require_once './../config.php';
 
 $parser = new CSVParser();
 $database = new MongoLoader();
-$database->insertDocuments($parser->parse("/home/iranox/Hexenverfolgung/data/Hexendaten.csv"));
+//$parser->parse(CSV);
+$database->insertDocuments($parser->parse(CSV), URL);
 
- ?>
