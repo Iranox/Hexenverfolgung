@@ -17,11 +17,9 @@ dataphp:
   image: debian:jessie
   volumes:
     - ./conf:/etc/nginx/conf.d
-    - ./../src/api:/code
-    - ./../src/vendor:/vendor
+    - ./../src/:/code
+    - ./script:/script
 mongodb:
  image: mongo
  ports:
   - "27017:27017"
- volumes:
-  - ./script:/script
