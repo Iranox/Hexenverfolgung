@@ -17,7 +17,7 @@ class MongoLoader
     public function getAllDocuments(){
         $reponse = $this->collection->find();
         $result = $this->resultToArray($reponse);
-        return json_encode($result);
+        return $result;
     }
 
     public function getDocumentsIntervall($von,$bis){
@@ -51,6 +51,7 @@ class MongoLoader
      * @return array
      */
     private function resultToArray($reponse){
+        print gettype($reponse);
         $result = array();
         foreach ($reponse as $entry) {
             array_push($result, $entry);
@@ -58,4 +59,3 @@ class MongoLoader
         return $result;
     }
 }
-

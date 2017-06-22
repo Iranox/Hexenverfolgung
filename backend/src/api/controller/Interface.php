@@ -1,5 +1,5 @@
 <?php
-require 'Datareader.php';
+require './../model/Datareader.php';
 require_once './../config.php';
 
 

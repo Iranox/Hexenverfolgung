@@ -1,6 +1,6 @@
 <?php
 require './../model/Datareader.php';
-require 'CSVParser.php';
+require './CSVParser.php';
 require_once './../config.php';
 
 $parser = new CSVParser();
