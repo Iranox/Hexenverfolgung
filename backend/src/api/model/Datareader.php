@@ -51,7 +51,6 @@ class MongoLoader
      * @return array
      */
     private function resultToArray($reponse){
-        print gettype($reponse);
         $result = array();
         foreach ($reponse as $entry) {
             array_push($result, $entry);
