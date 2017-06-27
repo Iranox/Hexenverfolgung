@@ -22,7 +22,7 @@
     <body>
         <script src="vendor/d3/d3.v4.min.js"></script>
         <script src="js/timeline.js"></script>
-        <script src="js/dataLoader.js"></script>
+        <script src="js/dataLoaderProxy.js"></script>
         <div class="jumbotron text-center">
             <h1>The Witch Hunts</h1>
             <p>A statistical overview of recorded Witch Hunts</p>
@@ -86,6 +86,7 @@
             <p>created by Tobi ;3</p>
         </div>
         <script>
+            $("#witch-bar-chart");
             var div = document.getElementById("witch-bar-chart");
             div.setAttribute("class", "timeline");
             div.setAttribute("style", "height:400px");
@@ -95,8 +96,9 @@
                 range.end = 1800;
                 var timeline = new Timeline(div, executions, range);
             };
-            var dataLoader = DataLoader(drawTimeline);
-            dataLoader.loadExecutions();
+            var dataLoader = window.DataLoader(drawTimeline);
+            dataLoader.loadExecutionsAsyn();
+    //        dataLoader.loadExecutions();
         </script>
     </body>
 </html>
