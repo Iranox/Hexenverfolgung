@@ -19,6 +19,14 @@ class WitchTrial implements RestAPI {
             echo $this->getAllVerdict() ;
         }
 
+        if (isset($_GET['location'])) {
+            echo $this->getAllLocation();
+        }
+
+    }
+
+    private function getAllLocation(){
+        return json_encode($this->dataReader->getallLocation());
     }
 
     private function getAllVerdict(){
