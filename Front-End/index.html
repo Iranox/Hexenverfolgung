@@ -23,6 +23,8 @@
         <script src="vendor/d3/d3.v4.min.js"></script>
         <script src="js/timeline.js"></script>
         <script src="js/dataLoaderProxy.js"></script>
+        <script src="js/DataWrapper.js"></script>
+        <script src="js/TableDrawer.js"></script>
         <div class="jumbotron text-center">
             <h1>The Witch Hunts</h1>
             <p>A statistical overview of recorded Witch Hunts</p>
@@ -51,54 +53,26 @@
                 <div id="witch-bar-chart"></div>
             </div>
             <div id="witch-table" class="col-md-4">
-                <table class="table-striped table-bordered" style="width:100%; height: 100%">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Charges</th>
-                            <th>Penalty</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Jean doe 1</td>
-                            <td>generic reason to kill 1</td>
-                            <td>death</td>
-                        </tr>
-                        <tr>
-                            <td>Jean doe 2</td>
-                            <td>generic reason to kill 2</td>
-                            <td>death</td>
-                        </tr>
-                        <tr>
-                            <td>Jean doe 3</td>
-                            <td>generic reason to kill 3</td>
-                            <td>death</td>
-                        </tr>
-                        <tr>
-                            <td>Jean doe 4</td>
-                            <td>generic reason to kill 4</td>
-                            <td>death</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
-            <p>created by Tobi ;3</p>
         </div>
         <script>
             $("#witch-bar-chart");
-            var div = document.getElementById("witch-bar-chart");
-            div.setAttribute("class", "timeline");
-            div.setAttribute("style", "height:400px");
+            var witch_bar_chart = document.getElementById("witch-bar-chart");
+            witch_bar_chart.setAttribute("class", "timeline");
+            witch_bar_chart.setAttribute("style", "height:400px");
+            var witch_table = document.getElementById("witch-table");
             drawTimeline = function(executions){
                 var range = {};
-                range.start = 1400;
-                range.end = 1800;
-                var timeline = new Timeline(div, executions, range);
+                var data = wrap_data(executions);
+                console.log(executions);
+                range.start = data.start*1 - (data.start*1 % 100);
+                range.end = data.end - (data.end % 100);
+                var timeline = new Timeline(witch_bar_chart, data, range);
+                var table_drawer = new TableDrawer(witch_table, executions, [["Name",  ["Vorname", "Name"]], ["Anklage", ["Anklage"]], ["Urteil", ["Urteilsspruch"]], ["Jahr", ["Jahr"]]]);
+                timeline.onRefreshPush(table_drawer.redrawData);
             };
             var dataLoader = window.DataLoader(drawTimeline);
             dataLoader.loadExecutionsAsyn();
-    //        dataLoader.loadExecutions();
         </script>
     </body>
 </html>

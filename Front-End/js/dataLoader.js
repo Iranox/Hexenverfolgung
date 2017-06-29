@@ -10,13 +10,9 @@ var DataLoader = function(defaultFunction){
         });
     };
     this.loadExecutionsAsyn = function(){
-        console.log("execute");
-        console.log("undefined?: " + $);
         $.get("/api/controller/Witch.php?all", function(response){
-            console.log("response");
-            console.log(response);
-            console.log(response[0].Vorname)
-        });
+            callbackFunction(response);
+        }, 'json');
     };
     return this;
 };
