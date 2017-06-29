@@ -1,64 +1,72 @@
-Nachname,Vorname,weiblich,geb.,gest.,Ort,Anklage,Urteil,Jahr,Urteilsspruch,Gestorben,Biographie
-Müller,Anna,true,,,Annaburg,Zauberei | Wahrsagen | Betrug,9.11.,1630,Landesverweisung | ewig,false,"Frau von Georg Müller, Schuster in Annaburg; "
-Müller,Georg,false,,,Annaburg,Wahrsagen | Betrug,9.11.,1630,Landesverweisung | 5 Jahre,false,"Mann von Anna Müller, Schuster in Annaburg"
-Liebe,Georg,false,,,Neustadt/Orla,Zauberhändel,,1713,unbekannt,,unbekannt
-Crämer,Barbara,true,,,Sonneberg,abergläubische Händel | Tötung von Menschen,,1719,Freispruch,false,"Frau des Leinewebermeisters Johann Michael Crämer in Sonneberg,  jüngste Tochter von Andreas Raue in Fürth"
-W.,B.,true,,,Endorf,abergläubische Händel,,1625,Belehrung durch den Pfarrer,false,unbekannt
-unbekannt,"unbekannt ""die alte Roderin""",true,,,Oederan,Milchzauber | Wetterzauber | Zauberei mit Alraune und Pilweisse,März/April,1529,Feuertod,true,ist nicht unvermögend und besitzt ein Haus
-Moller,Hans,false,,,Oederan,Zauberei mit Alraune und Pilsweisse | Diebstahl,19.3.,1529,"Landesverweisung | Leistung des ,,Orfride“",false,"Kleinhändler, Schwiedersohn der alten Roderin; lebte anschließend in Dippoldiswalde"
-Moller,Anna,true,,,Oederan,Liebeszauber | Zauberei mit Alraune und Pilweisse,19.3.,1529,"Landesverweisung | Leistung des ,,Orfride“",false,"Frau des Hans Moller, Tochter der alten Roderin; lebte anschließend in Dippoldiswalde"
-unbekannt,"unbekannt ""die alte Pfeifferin""",true,,,Oederan,Liebeszauber,26.2.,1529,unbekannt,,Frau des Christof Pfeiffer
-unbekannt,"unbekannt ""die lange Catharina""",true,,,Oederan,Liebeszauber,26.2.,1529,unbekannt,,
-unbekannt,"unbekannt ""die Krompagelin""",true,,,Schönerstadt,Zauberei,,,durch Folter verstorben,true,
-Mölner,unbekannt,true,,,Schönerstadt,Zauberei,,,durch Folter verstorben,true,Frau des Hans Mölner
-unbekannt,"unbekannt ""die alte Mintznerin",true,,,Oederan,Zauberei,26.2.,1529,Freispruch,false,
-Lößnert,Margarethe,true,,,Zschopau,Gotteslästerung | Teufelsanrufung,8.8.,1609,Tod durch Schwert,true,Witwe des Michael Lößnert
-unbekannt,unbekannt,,,,Gahlenz,Poltergeist in gekauftem Haus,,,Einstellung des Verfahrens,false,
-Weisse,Rosina,true,,,Augustusburg,Hexerei | Wahrsagen | Krankheitszauber | Kurieren,Januar,1674,Landesverweisung,false,"82 Jahre alt, wurde gefoltert"
-unbekannt,unbekannt,false,,,Augustusburg,Segensprechen | Büsen | Kurieren | Diebstahl,August,1675,Belehrung durch den Pfarrer | Landesverweisung | 3 Jahre,false,
-Rottluff (Radluff),Maria Rosina,true,,,Schönerstadt,Wahrsagen | Kleiderzauber | Kurieren,April,1678,Belehrung durch den Pfarrer | Landesverweisung | 4 Jahre,false,
-Mattheß,Hans,false,,,Borstendorf,Kurieren | Seligsprechen,2.6.,1688,Gefängnis | 6 Wochen | Geldstrafe,false,27 Jahre alt
-Wahlers,unbekannt,true,,,Felgeleben,Zauberei | Walpurgistanz,,1570,Freispruch,false,"Ehefrau des Joachim Wahlers, Bauerngutsbesitzer"
-unbekannt,"unbekannt ""die Henningsche""",true,,,Felgeleben,Zauberei | Walpurgistanz,,1570,Freispruch,false,gemeinsame Anklage mit Ehefrau von Joachim Wahlers
-Zising,Christine,true,,,Dornbach,Krankheitszauber | Brandstiftung,Januar,1619,durch Folter verstorben,true,"geb. Günther, Ehefrau von Martin Zising, eine alte Frau"
-Zernstörff,Susanna,true,,,Breitenhagen,Krankheitszauber | Ehebruch,3.5.,1625,Landesverweisung,false,"geb. Kregermann, Ehefrau von Steffen Zernstörffs (auch Steffen Peucher genannt)"
-Belman,Grethe,true,,,Breitenhagen,Krankheitszauber | Hurerei | Ehebruch,3.2.,1625,Landesverweisung,false,"geb. Hirthe, Witwe des Jeremias Belman"
-Schröter,Vrthea,true,,,Breitenhagen,Krankheitszauber,7.7.,1640,Freilassung | Leistung der Urfehde,false,Tochter von Martin Schröter
-Schneider,Barbara,true,,,Barby,Krankheitszauber,5.7.,1641,Leistung der Urfehde | Landesversweisung | 5 Jahre,false,"Witw des Jacob Schneider, 24 Jahre alt, hat zwei kleine Kinder"
-Große,Maria,true,,,Barby,Krankheitszauber,5.10.,1660,Freilassung,false,"geb. Kühne, auch Maria Fischers genannt, Witwe von Andreas Große, 73 Jahre alt, ohne Vermögen"
-Borsche,W.,true,,,Bautzen,Blindzaubern eines Knaben,November,1599,unbekannt,,Frau oder Witwe des Brosius Borsche
-unbekannt,Christina,true,,,Bautzen,Zauberei,November,1599,Freilassung,false,
-Simon,unbekannt,true,,,Erlenberg,Teufelsbannung,,1604,Tod durch Schwert | Verbrennung des Leichnams,true,"Witwe des Jacob Simon, Tat im Zusammenhang mit Inquisition und Hinrichtung ihres Mannes"
-Lehmann,Christina,true,,,Sornßig,Totschlag | Diebstahl | Zauberei,April,1628,unbekannt,,"Frau des ""Schwarzen"" Hans Lehmann"
-Lehmann,"Hans, ""der Schwarze""",false,,,Sornßig,Totschlag | Zauberei,4.4.,1628,unbekannt,,
-Gedtlich,Anna Rosina,true,,,ober-Strawalde,Verleumdung nach Vorwurf der Behexung einer Kuh,19.10.,1792,Gefängnis | 4 Tage,false,"geb. Rohleder, Ehefrau von Christoph Gedtlich"
-Gedtlich,Christoph,false,,,ober-Strawalde,Verleumdung nach Vorwurf der Behexung einer Kuh,19.10.,1793,Gefängnis | 4 Tage,false,Ehemann von Anna Rosina Gedtlich
-unbekannt,"unbekannt ""die Bunissin""",true,,,Belzig,Zauberei | Diebstahl,2.6.,1573,Landesverweisung,false,eine alte Frau
-Heserig,Niete,true,,,Belzig,Zauberei,1.3.,1598,Suizid,true,eine Frau
-Schultze,Catharina,true,,,Niemegk,Zauberei,21.7.,1601,Freispruch | Pranger | 4 Wochen Gefängnis,false,Bestrafung zur Abschreckung
-Kemnitz,Eva,true,,,Niemegk,Segensprechen | Missbrauch des göttlichen Wortes,09.09.,1642,Einstellung des Verfahrens | Belehrung | Freilassung ,false,"geb. Bergkholtz, Frau des Totengräbers Zacharias Kemnitz in Niemegk"
-Rösemann,Hedwig,true,,,Belzig,Zauberei | Hexerei,2.5.,1665,Feuertod,true,
-Kellner,Barbara,true,,,Benshausen,Teufelsbündnis | Milchdieberei,18.7.,1580,Freilassung | Leistung der Urfehde,false,"Witwe aus Benshausen, über 70 Jahre alt"
-Schöpner,Osanna,true,,,Benshausen,Zauberei,,,Suizid,true,
-Bader,Anna,true,,,Benshausen,Zauberei | Teufelsbündnis,,1596,Feuertod | Landesverweisung,,Zuordnung unbekannt
-Bons,Martha,true,,,Benshausen,Zauberei | Teufelsbündnis,,1596,Feuertod | Landesverweisung,,Zuordnung unbekannt
-Grunkeller,Margarete,true,,,Benshausen,Zauberei | Teufelsbündnis,,1596,Feuertod | Landesverweisung,,Zuordnung unbekannt
-Grimm,Hans,false,,,Benshausen,Zauberei | Teufelsbündnis,,1596,Feuertod | Landesverweisung,,Zuordnung unbekannt
-Kühner,Anna,true,,,Benshausen,Zauberei | Teufelsbündnis,,1596,Feuertod | Landesverweisung,,Zuordnung unbekannt
-Klett,Dey,true,,,Benshausen,Zauberei,,1597,durch Folter verstorben | Verbrennung des Leichnams,true,
-Haseney,Barbara,true,,,Ebertshausen,Hexerei,,1599,Feuertod,true,
-Bader,Anna,true,,,Benshausen,Zauberei,1.11.,1599,Feuertod,true,unverehelichte Tochter der 1596 als Hexe hingerichteten gleichnamigen Mutter; auch Schwester der 1599 mitbeschuldigten Martha Bader
-Bader,Martha,true,,,Benshausen,Zauberei,1.11.,1599,Feuertod,true,unverehelichte Tochter der 1596 als Hexe hingerichteten gleichnamigen Mutter; auch Schwester der 1599 mitbeschuldigten Anna Bader
-Hennig,Anna,true,,,Benshausen,Zauberei,November,1599,Einstellung des Verfahrens,false,
-Jung,Ketha,true,,,Benshausen,Zauberei,November,1599,Einstellung des Verfahrens,false,"Ehefrau des Moritz Jung, Schwester der auch als Hexe beschuldigten Elsa Metzin"
-Metzin,Elsa,true,,,Benshausen,Hexerei,,1599,unbekannt,,Schwester der auch als Hexe beschuldigten Ketha Jung
-Preusin (Preis),Vsann,true,,,Benshausen,Zauberei,9.7.,1603,Feuertod,true,Valten Preusen des Jüngeren Witwe
-Filmich,unbekannt,true,,,Benshausen,Zauberei,,1604,unbekannt,,
-Bütger,Martin,false,,,Benshausen,Zauberei,,1615,unbekannt,,
-Eichelbrönner,Catharina,true,,,Benshausen,Hexerei,,1621,Feuertod,true,Frau von Michael Eichelbrönner
-Schlenstein,Ampolonia,true,,,Benshausen,Veneficii,,1629,unbekannt,,Frau von Bastian Schlenstein
-Furche,Hanß,false,,,Viernau,Veneficii,,1657,unbekannt,,Frau von Jacob Leyhe
-Leyhe,Catharina,true,,,Viernau,Ehebruch | Zauberei,,1660,unbekannt,,
-Wagner,Osanna,true,,,Benshausen,Hexerei,,1659,unbekannt,,Frau des Hans Wagner
-König,Barbara,true,,,Benshausen,Zauberei,,1659,Freispruch,false,Frau des Hans Valtin König
-Lappe,Margarethe,true,,,Benshausen,Zauberei,,1674,unbekannt,,
+Nachname,Vorname,weiblich,geb.,gest.,Ort,Anklage,Urteil,Jahr,Urteilsspruch,Gestorben,Biographie,
+Müller,Anna,true,,,Annaburg,Zauberei | Wahrsagen | Betrug,9.11.,1630,Landesverweisung | ewig,false,"Frau von Georg Müller, Schuster in Annaburg; ",
+Müller,Georg,false,,,Annaburg,Wahrsagen | Betrug,9.11.,1630,Landesverweisung | 5 Jahre,false,"Mann von Anna Müller, Schuster in Annaburg",
+Liebe,Georg,false,,,Neustadt/Orla,Zauberhändel,,1713,unbekannt,,unbekannt,
+Crämer,Barbara,true,,,Sonneberg,abergläubische Händel | Tötung von Menschen,,1719,Freispruch,false,"Frau des Leinewebermeisters Johann Michael Crämer in Sonneberg,  jüngste Tochter von Andreas Raue in Fürth",
+W.,B.,true,,,Endorf,abergläubische Händel,,1625,Belehrung durch den Pfarrer,false,unbekannt,
+unbekannt,"unbekannt ""die alte Roderin""",true,,,Oederan,Milchzauber | Wetterzauber | Zauberei mit Alraune und Pilweisse,März/April,1529,Feuertod,true,ist nicht unvermögend und besitzt ein Haus,
+Moller,Hans,false,,,Oederan,Zauberei mit Alraune und Pilweisse | Diebstahl,19.3.,1529,"Landesverweisung | Leistung des ,,Orfride“",false,"Kleinhändler, Schwiedersohn der alten Roderin; lebte anschließend in Dippoldiswalde",
+Moller,Anna,true,,,Oederan,Liebeszauber | Zauberei mit Alraune und Pilweisse,19.3.,1529,"Landesverweisung | Leistung des ,,Orfride“",false,"Frau des Hans Moller, Tochter der alten Roderin; lebte anschließend in Dippoldiswalde",
+unbekannt,"unbekannt ""die alte Pfeifferin""",true,,,Oederan,Liebeszauber,26.2.,1529,unbekannt,,Frau des Christof Pfeiffer,
+unbekannt,"unbekannt ""die lange Catharina""",true,,,Oederan,Liebeszauber,26.2.,1529,unbekannt,,,
+unbekannt,"unbekannt ""die Krompagelin""",true,,,Schönerstadt,Zauberei,,,durch Folter verstorben,true,,
+Mölner,unbekannt,true,,,Schönerstadt,Zauberei,,,durch Folter verstorben,true,Frau des Hans Mölner,
+unbekannt,"unbekannt ""die alte Mintznerin",true,,,Oederan,Zauberei,26.2.,1529,Freispruch,false,,
+Lößnert,Margarethe,true,,,Zschopau,Gotteslästerung | Teufelsanrufung,8.8.,1609,Tod durch Schwert,true,Witwe des Michael Lößnert,
+unbekannt,unbekannt,,,,Gahlenz,Poltergeist in gekauftem Haus,,,Einstellung des Verfahrens,false,,
+Weisse,Rosina,true,,,Augustusburg,Hexerei | Wahrsagen | Krankheitszauber | Kurieren,Januar,1674,Landesverweisung,false,"82 Jahre alt, wurde gefoltert",
+unbekannt,unbekannt,false,,,Augustusburg,Segensprechen | Büsen | Kurieren | Diebstahl,August,1675,Belehrung durch den Pfarrer | Landesverweisung | 3 Jahre,false,,
+Rottluff (Radluff),Maria Rosina,true,,,Schönerstadt,Wahrsagen | Kleiderzauber | Kurieren,April,1678,Belehrung durch den Pfarrer | Landesverweisung | 4 Jahre,false,,
+Mattheß,Hans,false,,,Borstendorf,Kurieren | Seligsprechen,2.6.,1688,Gefängnis | 6 Wochen | Geldstrafe,false,27 Jahre alt,
+Wahlers,unbekannt,true,,,Felgeleben,Zauberei | Walpurgistanz,,1570,Freispruch,false,"Ehefrau des Joachim Wahlers, Bauerngutsbesitzer",
+unbekannt,"unbekannt ""die Henningsche""",true,,,Felgeleben,Zauberei | Walpurgistanz,,1570,Freispruch,false,gemeinsame Anklage mit Ehefrau von Joachim Wahlers,
+Zising,Christine,true,,,Dornbach,Krankheitszauber | Brandstiftung,Januar,1619,durch Folter verstorben,true,"geb. Günther, Ehefrau von Martin Zising, eine alte Frau",
+Zernstörff,Susanna,true,,,Breitenhagen,Krankheitszauber | Ehebruch,3.5.,1625,Landesverweisung,false,"geb. Kregermann, Ehefrau von Steffen Zernstörffs (auch Steffen Peucher genannt)",
+Belman,Grethe,true,,,Breitenhagen,Krankheitszauber | Hurerei | Ehebruch,3.2.,1625,Landesverweisung,false,"geb. Hirthe, Witwe des Jeremias Belman",
+Schröter,Vrthea,true,,,Breitenhagen,Krankheitszauber,7.7.,1640,Freilassung | Leistung der Urfehde,false,Tochter von Martin Schröter,
+Schneider,Barbara,true,,,Barby,Krankheitszauber,5.7.,1641,Leistung der Urfehde | Landesversweisung | 5 Jahre,false,"Witw des Jacob Schneider, 24 Jahre alt, hat zwei kleine Kinder",
+Große,Maria,true,,,Barby,Krankheitszauber,5.10.,1660,Freilassung,false,"geb. Kühne, auch Maria Fischers genannt, Witwe von Andreas Große, 73 Jahre alt, ohne Vermögen",
+Borsche,W.,true,,,Bautzen,Blindzaubern eines Knaben,November,1599,unbekannt,,Frau oder Witwe des Brosius Borsche,
+unbekannt,Christina,true,,,Bautzen,Zauberei,November,1599,Freilassung,false,,
+Simon,unbekannt,true,,,Erlenberg,Teufelsbannung,,1604,Tod durch Schwert | Verbrennung des Leichnams,true,"Witwe des Jacob Simon, Tat im Zusammenhang mit Inquisition und Hinrichtung ihres Mannes",
+Lehmann,Christina,true,,,Sornßig,Totschlag | Diebstahl | Zauberei,April,1628,unbekannt,,"Frau des ""Schwarzen"" Hans Lehmann",
+Lehmann,"Hans, ""der Schwarze""",false,,,Sornßig,Totschlag | Zauberei,4.4.,1628,unbekannt,,,
+Gedtlich,Anna Rosina,true,,,ober-Strawalde,Verleumdung nach Vorwurf der Behexung einer Kuh,19.10.,1792,Gefängnis | 4 Tage,false,"geb. Rohleder, Ehefrau von Christoph Gedtlich",
+Gedtlich,Christoph,false,,,ober-Strawalde,Verleumdung nach Vorwurf der Behexung einer Kuh,19.10.,1793,Gefängnis | 4 Tage,false,Ehemann von Anna Rosina Gedtlich,
+unbekannt,"unbekannt ""die Bunissin""",true,,,Belzig,Zauberei | Diebstahl,2.6.,1573,Landesverweisung,false,eine alte Frau,
+Heserig,Niete,true,,,Belzig,Zauberei,1.3.,1598,Suizid,true,eine Frau,
+Schultze,Catharina,true,,,Niemegk,Zauberei,21.7.,1601,Freispruch | Pranger | 4 Wochen Gefängnis,false,Bestrafung zur Abschreckung,
+Kemnitz,Eva,true,,,Niemegk,Segensprechen | Missbrauch des göttlichen Wortes,09.09.,1642,Einstellung des Verfahrens | Belehrung | Freilassung ,false,"geb. Bergkholtz, Frau des Totengräbers Zacharias Kemnitz in Niemegk",
+Rösemann,Hedwig,true,,,Belzig,Zauberei | Hexerei,2.5.,1665,Feuertod,true,,
+Kellner,Barbara,true,,,Benshausen,Teufelsbündnis | Milchdieberei,18.7.,1580,Freilassung | Leistung der Urfehde,false,"Witwe aus Benshausen, über 70 Jahre alt",
+Schöpner,Osanna,true,,,Benshausen,Zauberei,,,Suizid,true,,
+Bader,Anna,true,,,Benshausen,Zauberei | Teufelsbündnis,,1596,Feuertod | Landesverweisung,,Zuordnung unbekannt,
+Bons,Martha,true,,,Benshausen,Zauberei | Teufelsbündnis,,1596,Feuertod | Landesverweisung,,Zuordnung unbekannt,
+Grunkeller,Margarete,true,,,Benshausen,Zauberei | Teufelsbündnis,,1596,Feuertod | Landesverweisung,,Zuordnung unbekannt,
+Grimm,Hans,false,,,Benshausen,Zauberei | Teufelsbündnis,,1596,Feuertod | Landesverweisung,,Zuordnung unbekannt,
+Kühner,Anna,true,,,Benshausen,Zauberei | Teufelsbündnis,,1596,Feuertod | Landesverweisung,,Zuordnung unbekannt,
+Klett,Dey,true,,,Benshausen,Zauberei,,1597,durch Folter verstorben | Verbrennung des Leichnams,true,,
+Haseney,Barbara,true,,,Ebertshausen,Hexerei,,1599,Feuertod,true,,
+Bader,Anna,true,,,Benshausen,Zauberei,1.11.,1599,Feuertod,true,unverehelichte Tochter der 1596 als Hexe hingerichteten gleichnamigen Mutter, auch Schwester der 1599 mitbeschuldigten Martha Bader
+Bader,Martha,true,,,Benshausen,Zauberei,1.11.,1599,Feuertod,true,unverehelichte Tochter der 1596 als Hexe hingerichteten gleichnamigen Mutter, auch Schwester der 1599 mitbeschuldigten Anna Bader
+Hennig,Anna,true,,,Benshausen,Zauberei,November,1599,Einstellung des Verfahrens,false,,
+Jung,Ketha,true,,,Benshausen,Zauberei,November,1599,Einstellung des Verfahrens,false,"Ehefrau des Moritz Jung, Schwester der auch als Hexe beschuldigten Elsa Metzin",
+Metzin,Elsa,true,,,Benshausen,Hexerei,,1599,unbekannt,,Schwester der auch als Hexe beschuldigten Ketha Jung,
+Preusin (Preis),Vsann,true,,,Benshausen,Zauberei,9.7.,1603,Feuertod,true,Valten Preusen des Jüngeren Witwe,
+Filmich,unbekannt,true,,,Benshausen,Zauberei,,1604,unbekannt,,,
+Bütger,Martin,false,,,Benshausen,Zauberei,,1615,unbekannt,,,
+Eichelbrönner,Catharina,true,,,Benshausen,Hexerei,,1621,Feuertod,true,Frau von Michael Eichelbrönner,
+Schlenstein,Ampolonia,true,,,Benshausen,Veneficii,,1629,unbekannt,,Frau von Bastian Schlenstein,
+Furche,Hanß,false,,,Viernau,Veneficii,,1657,unbekannt,,Frau von Jacob Leyhe,
+Leyhe,Catharina,true,,,Viernau,Ehebruch | Zauberei,,1660,unbekannt,,,
+Wagner,Osanna,true,,,Benshausen,Hexerei,,1659,unbekannt,,Frau des Hans Wagner,
+König,Barbara,true,,,Benshausen,Zauberei,,1659,Freispruch,false,Frau des Hans Valtin König,
+Lappe,Margarethe,true,,,Benshausen,Zauberei,,1674,unbekannt,,,
+Thormann,unbekannt,true,,,Brehna,Brandstiftung | Halten eines Drachen,,1544,Einstellung des Verfahrens,false,Mutter des Nicol Thormann,
+Richter,Regina,true,,,Salzfurt,Schadenszauber | Elben | Teufelsbuhlschaft,,1593,Feuertod,true,,
+Sparwitz,Margaretha,true,,,Bitterfeld,Zauberei | Hexerei,,1632,durch Folter verstorben,true,,
+Tengel,Dorothea,true,,,Schköna,Teufelsbuhlschaft,,1664,Feuertod,true,,
+Gozsche,Anna,true,,,Roitzsch,Injurienklage,,1665,unbekannt,,,
+Wenze,unbekannt,true,,,Roitzsch,Hexerei,,1665,unbekannt,,Frau des Hans Wenze,
+Reyher,Christine,true,,,Roitzsch,Injurienklage,,1676,Ehrenerklärung,,,
+Ahl,Christian,false,,,Holzweißig,Besitz von „superstitionsen brieffe“,,1697,unbekannt,,,
