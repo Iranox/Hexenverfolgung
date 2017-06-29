@@ -20,6 +20,14 @@ class MongoLoader
         return $result;
     }
 
+    public function getallLocation(){
+        $reponse = $this->collection->aggregate([
+            ['$group' => ["_id"=>'$Ort','quantity' => ['$sum' => 1]]]
+        ]);
+        $result = $this->resultToArray($reponse);
+        return $result;
+    }
+
     public function getDocumentsIntervall($von,$bis){
         $reponse = $this->collection->aggregate([
             ['$match' =>
