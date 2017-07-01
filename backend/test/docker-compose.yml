@@ -22,5 +22,7 @@ dataphp:
     - ./script:/script
 mongodb:
  image: mongo
+ volumes:
+   - ./locations:/script
  ports:
   - "27017:27017"

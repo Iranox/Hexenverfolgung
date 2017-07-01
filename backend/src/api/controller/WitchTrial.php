@@ -3,6 +3,7 @@ require 'RestAPI.php';
 
 class WitchTrial implements RestAPI {
     private $dataReader;
+    const INTEGERREGEXPATTERN = '/^(\+|\-)?[0-9]+((e|E)[0-9]+)?$/';
 
     public function handle(){
         $this->dataReader = new MongoLoader(URL);
@@ -44,7 +45,7 @@ class WitchTrial implements RestAPI {
     }
 
     private function stringToInteger($string){
-        if (preg_match(RestAPI::INTEGERREGEXPATTERN, $string)) {
+        if (preg_match($this->INTEGERREGEXPATTERN, $string)) {
             $int = (int)$string;
             return $int;
         }
