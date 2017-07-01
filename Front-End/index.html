@@ -25,6 +25,7 @@
         <script src="js/dataLoaderProxy.js"></script>
         <script src="js/DataWrapper.js"></script>
         <script src="js/TableDrawer.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/2.4.3/seedrandom.min.js"></script>
         <div class="jumbotron text-center">
             <h1>The Witch Hunts</h1>
             <p>A statistical overview of recorded Witch Hunts</p>
@@ -32,28 +33,14 @@
         <div class="row">
             <div id="witch-map" class="col-md-12">
                 <div id="map" class="map"></div>
-                    <script type="text/javascript">
-                        var map = new ol.Map({
-                            target: 'map',
-                            layers: [
-                                new ol.layer.Tile({
-                                    source: new ol.source.OSM()
-                                })
-                            ],
-                            view: new ol.View({
-                                center: ol.proj.fromLonLat([-30.0, 45.0]),
-                                zoom: 3
-                            })
-                        });
-                </script>
+                <script src="js/WitchMap.js" type="text/javascript"></script>
             </div>
         </div>
         <div class="row">
             <div class="col-md-8">
                 <div id="witch-bar-chart"></div>
             </div>
-            <div id="witch-table" class="col-md-4">
-            </div>
+            <div id="witch-table" class="col-md-4"></div>
         </div>
         <script>
             $("#witch-bar-chart");
@@ -64,12 +51,25 @@
             drawTimeline = function(executions){
                 var range = {};
                 var data = wrap_data(executions);
-                console.log(executions);
                 range.start = data.start*1 - (data.start*1 % 100);
                 range.end = data.end - (data.end % 100);
                 var timeline = new Timeline(witch_bar_chart, data, range);
                 var table_drawer = new TableDrawer(witch_table, executions, [["Name",  ["Vorname", "Name"]], ["Anklage", ["Anklage"]], ["Urteil", ["Urteilsspruch"]], ["Jahr", ["Jahr"]]]);
                 timeline.onRefreshPush(table_drawer.redrawData);
+
+                Math.seedrandom(4791025710);
+                var coordRange = {long: [-53, -23], lat: [15, 60]};
+                var coordDiff = {long: (coordRange.long[1] - coordRange.long[0]), lat: (coordRange.lat[1] - coordRange.lat[0])};
+                var testCoord = []; //= [{long: -60, lat: 45}, {long: -35, lat: 60}, {long: -60, lat: 15}, {long: -15, lat: 45}];
+                for(var i=0; i<100; i++){
+                    coord = {long: Math.floor(Math.random()*coordDiff.long + coordRange.long[0]), lat: Math.floor(Math.random()*coordDiff.lat + coordRange.lat[0])};
+                    amount = Math.floor(Math.random()*4);
+//                    for(k = 0; k<amount; k++){
+                        testCoord.push(coord);
+//                    }
+                }
+                var witchMap = new WitchMap(new ol.source.OSM());
+                witchMap.init(testCoord);
             };
             var dataLoader = window.DataLoader(drawTimeline);
             dataLoader.loadExecutionsAsyn();
