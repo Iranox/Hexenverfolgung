@@ -3,6 +3,7 @@ require 'RestAPI.php';
 
 class WitchTrial implements RestAPI {
     private $dataReader;
+    const INTEGERREGEXPATTERN = '/^(\+|\-)?[0-9]+((e|E)[0-9]+)?$/';
 
     public function handle(){
         $this->dataReader = new MongoLoader(URL);
@@ -20,8 +21,15 @@ class WitchTrial implements RestAPI {
         }
 
         if (isset($_GET['location'])) {
-            echo $this->getAllLocation();
+            if($_GET['location'] === null){
+                echo  $this->getAllLocation();
+            } else {
+                echo $this->getWitchByLocation($_GET['location']);
+            }
+
         }
+
+
 
     }
 
@@ -37,6 +45,10 @@ class WitchTrial implements RestAPI {
         return json_encode($this->dataReader->getAllDocuments());
     }
 
+    private function getWitchByLocation($ort){
+        return json_encode($this->dataReader->getWitchByLocation($ort));
+    }
+
     private function getAllDocumentsBetweenInterval(){
         $from = $this->stringToInteger($_GET['from']);
         $until = $this->stringToInteger($_GET['until']);
@@ -44,7 +56,7 @@ class WitchTrial implements RestAPI {
     }
 
     private function stringToInteger($string){
-        if (preg_match(RestAPI::INTEGERREGEXPATTERN, $string)) {
+        if (preg_match($this->INTEGERREGEXPATTERN, $string)) {
             $int = (int)$string;
             return $int;
         }
