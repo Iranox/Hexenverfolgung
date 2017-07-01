@@ -22,7 +22,18 @@ class MongoLoader
 
     public function getallLocation(){
         $reponse = $this->collection->aggregate([
-            ['$group' => ["_id"=>'$Ort','quantity' => ['$sum' => 1]]]
+            ['$group' => ["_id"=>'$Ort','quantity' => ['$sum' => 1],'lat'=>['$first' =>'$Coordinaten.lat' ],
+                         'lon'=>['$first' =>'$Coordinaten.lon' ]]]
+        ]);
+        $result = $this->resultToArray($reponse);
+        return $result;
+    }
+
+    public function getWitchByLocation($ort){
+        $reponse = $this->collection->aggregate([
+            ['$match' =>
+                ['Ort' => $ort]
+            ]
         ]);
         $result = $this->resultToArray($reponse);
         return $result;

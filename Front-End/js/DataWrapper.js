@@ -35,7 +35,7 @@ var wrap_data = function(data, type){
     };
     switch (type){
         case "year first":
-            return createYearMap(data);
+            return createYearMap(data); //in case another format has to be produced, inset here
             break;
         default:
             return createYearMap(data);

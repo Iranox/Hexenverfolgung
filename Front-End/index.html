@@ -49,27 +49,16 @@
             witch_bar_chart.setAttribute("style", "height:400px");
             var witch_table = document.getElementById("witch-table");
             drawTimeline = function(executions){
-                var range = {};
-                var data = wrap_data(executions);
-                range.start = data.start*1 - (data.start*1 % 100);
-                range.end = data.end - (data.end % 100);
-                var timeline = new Timeline(witch_bar_chart, data, range);
+                var timeline = new Timeline(witch_bar_chart, executions);
                 var table_drawer = new TableDrawer(witch_table, executions, [["Name",  ["Vorname", "Name"]], ["Anklage", ["Anklage"]], ["Urteil", ["Urteilsspruch"]], ["Jahr", ["Jahr"]]]);
                 timeline.onRefreshPush(table_drawer.redrawData);
-
                 Math.seedrandom(4791025710);
                 var coordRange = {long: [-53, -23], lat: [15, 60]};
                 var coordDiff = {long: (coordRange.long[1] - coordRange.long[0]), lat: (coordRange.lat[1] - coordRange.lat[0])};
                 var testCoord = []; //= [{long: -60, lat: 45}, {long: -35, lat: 60}, {long: -60, lat: 15}, {long: -15, lat: 45}];
-                for(var i=0; i<100; i++){
-                    coord = {long: Math.floor(Math.random()*coordDiff.long + coordRange.long[0]), lat: Math.floor(Math.random()*coordDiff.lat + coordRange.lat[0])};
-                    amount = Math.floor(Math.random()*4);
-//                    for(k = 0; k<amount; k++){
-                        testCoord.push(coord);
-//                    }
-                }
                 var witchMap = new WitchMap(new ol.source.OSM());
-                witchMap.init(testCoord);
+                witchMap.onRefreshPush(table_drawer.redrawData);
+                witchMap.init(executions);
             };
             var dataLoader = window.DataLoader(drawTimeline);
             dataLoader.loadExecutionsAsyn();
