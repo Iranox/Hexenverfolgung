@@ -4,3 +4,4 @@ mongo  mongodb:27017/hexenverfolgung  --eval ' db.verfolgung.updateMany({"Ort":"
 mongo  mongodb:27017/hexenverfolgung  --eval ' db.verfolgung.updateMany({"Ort":"Benshausen"},{$set:{"Coordinaten":{"lat":"42.6384261","lon":"12.674297" }}})'
 mongo  mongodb:27017/hexenverfolgung  --eval ' db.verfolgung.updateMany({"Ort":"Neustadt/Orla"},{$set:{"Coordinaten":{"lat":"47.6384261","lon":"18.674297" }}})'
 mongo  mongodb:27017/hexenverfolgung  --eval ' db.verfolgung.updateMany({"Ort":"Bautzen"},{$set:{"Coordinaten":{"lat":"46.603354","lon":"1.8883335" }}})'
+mongo  mongodb:27017/hexenverfolgung  --eval ' db.verfolgung.updateMany({"Ort":"Zschopau"},{$set:{"Coordinaten":{"lat":"46.603354","lon":"1.8883335" }}})'

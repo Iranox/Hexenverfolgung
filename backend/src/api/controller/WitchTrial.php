@@ -21,8 +21,15 @@ class WitchTrial implements RestAPI {
         }
 
         if (isset($_GET['location'])) {
-            echo $this->getAllLocation();
+            if($_GET['location'] === null){
+                echo  $this->getAllLocation();
+            } else {
+                echo $this->getWitchByLocation($_GET['location']);
+            }
+
         }
+
+
 
     }
 
@@ -36,6 +43,10 @@ class WitchTrial implements RestAPI {
 
     private function getAllDocuments(){
         return json_encode($this->dataReader->getAllDocuments());
+    }
+
+    private function getWitchByLocation($ort){
+        return json_encode($this->dataReader->getWitchByLocation($ort));
     }
 
     private function getAllDocumentsBetweenInterval(){

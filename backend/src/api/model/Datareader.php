@@ -29,6 +29,16 @@ class MongoLoader
         return $result;
     }
 
+    public function getWitchByLocation($ort){
+        $reponse = $this->collection->aggregate([
+            ['$match' =>
+                ['Ort' => $ort]
+            ]
+        ]);
+        $result = $this->resultToArray($reponse);
+        return $result;
+    }
+
     public function getDocumentsIntervall($von,$bis){
         $reponse = $this->collection->aggregate([
             ['$match' =>
