@@ -79,8 +79,6 @@ var DataLoader = function(defaultFunction){
         });
     };
     this.loadExecutionsAsyn = function(){
-        console.log("execute");
-        console.log("undefined?: " + $);
         $.get("/api/controller/Witch.php?all", function(response){
             callbackFunction(response);
         }, 'json');

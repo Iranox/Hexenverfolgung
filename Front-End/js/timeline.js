@@ -1,4 +1,8 @@
-var Timeline = function(div, executions, range){
+var Timeline = function(div, exData){
+    var executions = wrap_data(exData);
+    var range = {};
+    range.start = executions.start*1 - (executions.start*1 % 100);
+    range.end = executions.end - (executions.end % 100);
     var timeline = d3.select(div);
     var graphContainer = timeline.append("div");
         graphContainer.attr("style", "position:absolute; top:25px; left:25px; bottom: 25px; right:25px;");
