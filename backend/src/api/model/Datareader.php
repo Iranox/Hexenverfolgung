@@ -18,7 +18,7 @@ class MongoLoader
         foreach ($data as $row){
                $this->collection->updateMany(["Ort"=>$row["Ort"]],
                                            ['$set' =>["Coordinaten" =>
-                                              ["lat"=>$row["Breitengrade"], "lon"=>$row["Längengrade"]]
+                                              ["lat"=>$row["Breitengrad"], "lon"=>$row["Längengrad"]]
                                            ]]);
         }
 
