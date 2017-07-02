@@ -33,6 +33,7 @@ var Timeline = function(div, exData, split){
         prepareData(data);
         drawData(data, 1);
         drawLine();
+        $('[data-toggle="tooltip"]').tooltip();
     }
 
     function prepareData(data){
@@ -79,6 +80,7 @@ var Timeline = function(div, exData, split){
             drawData(data2, 3);
         }
         drawLine();
+        $('[data-toggle="tooltip"]').tooltip({'container': 'body', 'placement':  'top'});
     };
 
     function drawData(data, priority){
@@ -93,6 +95,9 @@ var Timeline = function(div, exData, split){
                 .attr("width", 3)
                 .attr("height", function(d){startingPoints[d[0]] = startingPoints.get(d[0]) + scaleHeight(d[1].stack*1); return scaleHeight(d[1].stack*1) + "%";})
                 .attr("class", "WitchValue" + priority)
+                .attr("data-toggle", "tooltip")
+                .attr("data-placement", "top")
+                .attr("title", function(d){return "Number of processes in the year " + d[0] + " : " + d[1].stack;})
                 .on("mouseover", refreshDataLabel)
                 .on("mouseout", resetDataLabel)
                 .on("click", function(d){ activateRefresh(d[1].processes);});
@@ -112,7 +117,7 @@ var Timeline = function(div, exData, split){
     };
 
     function resetDataLabel(){
-        dataLabel.html("XXXX:YY");
+        dataLabel.html("Year: YY");
     }
 
     function activateRefresh(data){

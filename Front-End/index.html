@@ -56,7 +56,7 @@
             drawTimeline = function(executions){
                 startData = executions;
                 timeline = new Timeline(witch_bar_chart, executions);
-                var table_drawer = new TableDrawer(witch_table, executions, [["Name",  ["Vorname", "Name"]], ["Anklage", ["Anklage"]], ["Urteil", ["Urteilsspruch"]], ["Jahr", ["Jahr"]]]);
+                var table_drawer = new TableDrawer(witch_table, executions, [["Name",  ["Vorname", "Nachname"]], ["Anklage", ["Anklage"]], ["Urteil", ["Urteilsspruch"]], ["Jahr", ["Jahr"]]]);
                 timeline.onRefreshPush(table_drawer.redrawData);
                 var witchMap = new WitchMap(new ol.source.OSM());
                 witchMap.onRefreshPush(table_drawer.redrawData);

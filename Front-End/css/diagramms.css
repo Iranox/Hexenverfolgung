@@ -13,3 +13,7 @@
     font: 10px sans-serif;
     text-anchor: end;
 }
+.tooltip {
+    position: fixed;
+    z-index: 10000;
+}
