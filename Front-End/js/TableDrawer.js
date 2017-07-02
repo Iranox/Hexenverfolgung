@@ -33,7 +33,7 @@ var TableDrawer = function(div, data, head){
     }
     bodyContent(data);
     this.redrawData = function(data){
-        table.html("");
+        table.select("tbody").remove();
         bodyContent(data);
     };
     return this;

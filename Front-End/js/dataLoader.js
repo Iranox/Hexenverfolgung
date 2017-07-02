@@ -9,8 +9,8 @@ var DataLoader = function(defaultFunction){
             callbackFunction(json);
         });
     };
-    this.loadExecutionsAsyn = function(){
-        $.get("/api/controller/Witch.php?all", function(response){
+    this.loadExecutionsAsyn = function(param){
+        $.get("/api/controller/Witch.php?" + param, function(response){
             callbackFunction(response);
         }, 'json');
     };

@@ -1,5 +1,12 @@
-.timeline rect {
+.WitchValue1 {
     fill: steelblue;
+}
+.WitchValue2 {
+    fill: darkred;
+}
+
+.WitchValue3 {
+    fill: gray;
 }
 .timeline text {
     fill: white;
