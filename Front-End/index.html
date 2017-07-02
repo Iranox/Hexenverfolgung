@@ -39,6 +39,9 @@
         <div class="row">
             <div class="col-md-8">
                 <div id="witch-bar-chart"></div>
+                <button onclick="timeline.redraw(startData)">All</button>
+                <button onclick="gender()">Gender</button>
+                <button onclick="lethal()">Mortality</button>
             </div>
             <div id="witch-table" class="col-md-4"></div>
         </div>
@@ -48,20 +51,33 @@
             witch_bar_chart.setAttribute("class", "timeline");
             witch_bar_chart.setAttribute("style", "height:400px");
             var witch_table = document.getElementById("witch-table");
+            var startData;
+            var timeline;
             drawTimeline = function(executions){
-                var timeline = new Timeline(witch_bar_chart, executions);
+                startData = executions;
+                timeline = new Timeline(witch_bar_chart, executions);
                 var table_drawer = new TableDrawer(witch_table, executions, [["Name",  ["Vorname", "Name"]], ["Anklage", ["Anklage"]], ["Urteil", ["Urteilsspruch"]], ["Jahr", ["Jahr"]]]);
                 timeline.onRefreshPush(table_drawer.redrawData);
-                Math.seedrandom(4791025710);
-                var coordRange = {long: [-53, -23], lat: [15, 60]};
-                var coordDiff = {long: (coordRange.long[1] - coordRange.long[0]), lat: (coordRange.lat[1] - coordRange.lat[0])};
-                var testCoord = []; //= [{long: -60, lat: 45}, {long: -35, lat: 60}, {long: -60, lat: 15}, {long: -15, lat: 45}];
                 var witchMap = new WitchMap(new ol.source.OSM());
                 witchMap.onRefreshPush(table_drawer.redrawData);
                 witchMap.init(executions);
             };
-            var dataLoader = window.DataLoader(drawTimeline);
-            dataLoader.loadExecutionsAsyn();
+            var dataLoader = new window.DataLoader(drawTimeline);
+            dataLoader.loadExecutionsAsyn("all");
+            drawGenderSeparated = function(executions){
+                timeline.drawTripleData([executions.female, executions.male, executions.unknown]);
+            };
+            var dataLoader2 = new window.DataLoader(drawGenderSeparated);
+            function gender(){
+                dataLoader2.loadExecutionsAsyn('allByGender');
+            }
+            drawLethalitySeparated = function(executions){
+                timeline.drawTripleData([executions.death, executions.live, executions.unknown]);
+            };
+            var dataLoader3 = new window.DataLoader(drawLethalitySeparated);
+            function lethal(){
+                dataLoader3.loadExecutionsAsyn('allByDeathly');
+            }
         </script>
     </body>
 </html>

@@ -45,7 +45,6 @@ var WitchMap = function(source, radiusFunction, clusterOffset){
             if(data[i].Coordinaten === undefined){
                 continue;
             }
-            console.log(data[i].Coordinaten.lon + " " + data[i].Coordinaten.lat);
             center = ol.proj.fromLonLat([data[i].Coordinaten.lon*1, data[i].Coordinaten.lat*1]);
             circles.push(new ol.geom.Point(center));
             features.push(new ol.Feature(circles[stackSize]));

@@ -9,6 +9,9 @@ var wrap_data = function(data, type){
         var yearRangeEnd = Number.MIN_VALUE;
         for(var x in data){
             index = data[x]["Jahr"];
+            if(index === "" || index === undefined){
+                continue;
+            }
             if(yearMap[index] === undefined){
                yearMap[index] = {stack : 0, processes: []};
             }
@@ -29,6 +32,9 @@ var wrap_data = function(data, type){
             }
         }
         execMap.maxStackValue = maxExPYe;
+        if(isNaN(yearRangeStart)){
+            yearRangeStart = Number.MAX_VALUE;
+        }
         execMap.start = yearRangeStart;
         execMap.end = yearRangeEnd;
         return execMap;
@@ -40,8 +46,4 @@ var wrap_data = function(data, type){
         default:
             return createYearMap(data);
     }
-
-
-
-
 };
