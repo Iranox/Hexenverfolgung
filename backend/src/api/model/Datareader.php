@@ -14,6 +14,16 @@ class MongoLoader
         }
     }
 
+    public function insertLocations($data){
+        foreach ($data as $row){
+               $this->collection->updateMany(["Ort"=>$row["Ort"]],
+                                           ['$set' =>["Coordinaten" =>
+                                              ["lat"=>$row["Breitengrade"], "lon"=>$row["Längengrade"]]
+                                           ]]);
+        }
+
+    }
+
     public function getAllDocuments(){
         $reponse = $this->collection->find();
         $result = $this->resultToArray($reponse);

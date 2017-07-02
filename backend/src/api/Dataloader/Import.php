@@ -6,4 +6,4 @@ require_once './../config.php';
 $parser = new CSVParser();
 $database = new MongoLoader(URL);
 $database->insertDocuments($parser->parse(CSV));
-
+$database->insertLocations($parser->parse(LOCATIONS));
