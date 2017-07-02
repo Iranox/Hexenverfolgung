@@ -1,6 +1,7 @@
 var Timeline = function(div, exData, split){
     var range = {};
     var startingPoints;
+    var maxStackValueAbsolut;
     var timeline = d3.select(div);
     var graphContainer = timeline.append("div");
         graphContainer.attr("style", "position:absolute; top:25px; left:25px; bottom: 25px; right:25px;");
@@ -28,6 +29,7 @@ var Timeline = function(div, exData, split){
     function init(exData){
         graphSVG.html("");
         var data = wrap_data(exData);
+        maxStackValueAbsolut = maxStackValueAbsolut || data.maxStackValue;
         prepareData(data);
         drawData(data, 1);
         drawLine();
@@ -80,7 +82,7 @@ var Timeline = function(div, exData, split){
     };
 
     function drawData(data, priority){
-        var scaleHeight = d3.scaleLinear().domain([0, data.maxStackValue]).range([0, 100]);
+        var scaleHeight = d3.scaleLinear().domain([0, maxStackValueAbsolut]).range([0, 100]);
         var scaleXpos = d3.scaleLinear().domain([range.start*1, range.end*1]).range([0, 100]);
         var bar = graphSVG.selectAll(".WitchValue" + priority)
             .data(data)
