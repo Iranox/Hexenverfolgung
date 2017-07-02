@@ -20,6 +20,10 @@ class WitchTrial implements RestAPI {
             echo $this->getAllSortedByGender();
         }
 
+        if(isset($_GET['allByDeathly'])){
+            echo $this->getAllSortedByDeath();
+        }
+
         if(isset($_GET['verdict'])){
             echo $this->getAllVerdict() ;
         }
@@ -61,6 +65,14 @@ class WitchTrial implements RestAPI {
             $int = (int)$string;
             return $int;
         }
+    }
+
+    private function getAllSortedByDeath(){
+        $answer = array("death" => $this->dataReader->getAllByDeathly("true"),
+            "live" => $this->dataReader->getAllByDeathly("false"),
+            "unknown" => $this->dataReader->getAllByDeathly("")
+        );
+        return json_encode($answer);
     }
 
     private function getAllSortedByGender(){

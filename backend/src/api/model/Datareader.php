@@ -60,6 +60,17 @@ class MongoLoader
         return $result;
     }
 
+    public function getAllByDeathly($death){
+        $reponse = $this->collection->aggregate([
+            ['$match' =>
+                ['Gestorben' => $death]
+            ]
+        ]);
+        $result = $this->resultToArray($reponse);
+
+        return $result;
+    }
+
     public function getAllByGender($gender){
         $reponse = $this->collection->aggregate([
             ['$match' =>
