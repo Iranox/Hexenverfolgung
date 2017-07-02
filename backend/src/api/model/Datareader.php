@@ -60,6 +60,17 @@ class MongoLoader
         return $result;
     }
 
+    public function getAllByGender($gender){
+        $reponse = $this->collection->aggregate([
+            ['$match' =>
+                ['weiblich' => $gender]
+            ]
+        ]);
+        $result = $this->resultToArray($reponse);
+
+        return $result;
+    }
+
     function __destruct(){
         unset($this->uri);
         unset($this->collection);
