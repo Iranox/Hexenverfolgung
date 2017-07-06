@@ -1,12 +1,12 @@
 var Timeline = function(div, exData, split){
     var range = {};
     var startingPoints;
-    var maxStackValueAbsolut;
+    var maxStackValueAbsolute;
     var timeline = d3.select(div);
     var graphContainer = timeline.append("div");
-        graphContainer.attr("style", "position:absolute; top:25px; left:25px; bottom: 25px; right:25px;");
+        graphContainer.attr("style", "position:absolute; top:25px; left:40px; bottom: 25px; right:25px; z-index: 1;");
     var graphSVG = graphContainer.append("svg");
-        graphSVG.attr("height","100%").attr("width", "100%");
+        graphSVG.attr("height","100%").attr("width", "100%").style({background: "none"});
     if(timeline.style("position") === "static"){
         timeline.style("position","relative");  //TODO throw error
     }
@@ -22,15 +22,57 @@ var Timeline = function(div, exData, split){
     var EndLabel = timeline.append("p");
         EndLabel.attr("style", "position:absolute; bottom:0px; right:0px; height:25px; margin:0px");
 
+    var sideLine = timeline.append("div")
+            .attr("style", "position:absolute; top:25px; left:0px; bottom:25px; right: 25px; background: none; z-index: 0;")
+            .append("svg").attr("style","background: none;")
+                .attr("style", "height:100%; width:100%; background:none;");
+    var sideLineText = timeline.append("div").attr("style", "position:absolute; top:25px; left:0px; bottom:25px; width: 40px; background: none; z-index: 0;");
     init(exData);
 
     var refreshFunctions = []; //TODO Improve
 
+    function drawSideLine(){
+        sideLine.html("");
+        sideLineText.html("");
+        var height = maxStackValueAbsolute/10;
+        var exponent = 0;
+        while(height > 1){
+            exponent++;
+            height = height/10;
+        }
+        var step = Math.pow(10, exponent);
+        if(Math.floor((maxStackValueAbsolute/step)) <= 1){
+            step = step /10;
+        }
+        var scaleHeight = d3.scaleLinear().domain([0, maxStackValueAbsolute]).range([0, 100]);
+        var currentHeight = step;
+        while(currentHeight < maxStackValueAbsolute){
+            sideLine.append("line")
+                .attr("x1", "37px")
+                .attr("x2", "100%")
+                .attr("y1", scaleHeight(currentHeight)+ "%")
+                .attr("y2", scaleHeight(currentHeight)+ "%")
+                .attr("style", "stroke:rgb(125, 125, 125); stroke-width:1px;");
+            sideLineText.append("div")
+                .attr("style", "color: rgb(125, 125, 125); position: absolute; right:0px; left:0px; margin:0px; padding:0px; bottom: " + scaleHeight(currentHeight) + "%")
+                .append("p")
+                    .attr("style", "position: absolute; right:5px; margin:0px; padding:0px; bottom: -8px;" )
+                    .html(currentHeight);
+            currentHeight = currentHeight*1 + step*1;
+        }
+        sideLine.append("line")
+            .attr("x1", "39px")
+            .attr("x2", "39px")
+            .attr("y1", "0%")
+            .attr("y2", "100%")
+            .attr("style", "stroke:rgb(0, 0, 0); stroke-width:2px;");
+    }
     function init(exData){
         graphSVG.html("");
         var data = wrap_data(exData);
-        maxStackValueAbsolut = maxStackValueAbsolut || data.maxStackValue;
+        maxStackValueAbsolute = maxStackValueAbsolute || data.maxStackValue;
         prepareData(data);
+        drawSideLine(data);
         drawData(data, 1);
         drawLine();
         $('[data-toggle="tooltip"]').tooltip();
@@ -84,7 +126,7 @@ var Timeline = function(div, exData, split){
     };
 
     function drawData(data, priority){
-        var scaleHeight = d3.scaleLinear().domain([0, maxStackValueAbsolut]).range([0, 100]);
+        var scaleHeight = d3.scaleLinear().domain([0, maxStackValueAbsolute]).range([0, 100]);
         var scaleXpos = d3.scaleLinear().domain([range.start*1, range.end*1]).range([0, 100]);
         var bar = graphSVG.selectAll(".WitchValue" + priority)
             .data(data)
@@ -113,10 +155,12 @@ var Timeline = function(div, exData, split){
     };
 
     function refreshDataLabel(d){
+        $(this).css({fill: "gold"})
         dataLabel.html(d[0] + ":" + d[1].stack*1);
     };
 
     function resetDataLabel(){
+        $(this).css({fill: ""})
         dataLabel.html("Year: YY");
     }
 

@@ -39,9 +39,12 @@
         <div class="row">
             <div class="col-md-8">
                 <div id="witch-bar-chart"></div>
-                <button onclick="timeline.redraw(startData)">All</button>
-                <button onclick="gender()">Gender</button>
-                <button onclick="lethal()">Mortality</button>
+                <div id="bottom-line">
+                    <button onclick="timeline.redraw(startData); legende(['processes']);">All</button>
+                    <button onclick="gender()">Gender</button>
+                    <button onclick="lethal()">Mortality</button>
+                    <div id = "legende" style="float:right"></div>
+                </div>
             </div>
             <div id="witch-table" class="col-md-4"></div>
         </div>
@@ -58,6 +61,7 @@
                 timeline = new Timeline(witch_bar_chart, executions);
                 var table_drawer = new TableDrawer(witch_table, executions, [["Name",  ["Vorname", "Nachname"]], ["Anklage", ["Anklage"]], ["Urteil", ["Urteilsspruch"]], ["Jahr", ["Jahr"]]]);
                 timeline.onRefreshPush(table_drawer.redrawData);
+                legende(['processes']);
                 var witchMap = new WitchMap(new ol.source.OSM());
                 witchMap.onRefreshPush(table_drawer.redrawData);
                 witchMap.init(executions);
@@ -69,6 +73,7 @@
             };
             var dataLoader2 = new window.DataLoader(drawGenderSeparated);
             function gender(){
+                legende(["female", "male", "unknown"]);
                 dataLoader2.loadExecutionsAsyn('allByGender');
             }
             drawLethalitySeparated = function(executions){
@@ -76,7 +81,15 @@
             };
             var dataLoader3 = new window.DataLoader(drawLethalitySeparated);
             function lethal(){
+                legende(["lethal", "nonlethal", "unknown"]);
                 dataLoader3.loadExecutionsAsyn('allByDeathly');
+            }
+            function legende(names){
+                var legendeString = "<b>Legende:</b>";
+                for(var i = 0; i < names.length; i++){
+                    legendeString += '<div><div class="Legende' + (i+1) +'"></div>' + names[i] + '</div>';
+                }
+                $("#legende").html(legendeString);
             }
         </script>
     </body>

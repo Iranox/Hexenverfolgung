@@ -1,12 +1,34 @@
 .WitchValue1 {
     fill: steelblue;
 }
+
 .WitchValue2 {
     fill: darkred;
 }
 
 .WitchValue3 {
     fill: gray;
+}
+
+.Legende1 {
+    background: steelblue;
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+
+.Legende2 {
+    background: darkred;
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+
+.Legende3 {
+    background: gray;
+    width: 20px;
+    height: 20px;
+    float: left;
 }
 .timeline text {
     fill: white;
@@ -16,4 +38,18 @@
 .tooltip {
     position: fixed;
     z-index: 10000;
+}
+
+#legende {
+    text-align: justify;
+}
+#legende > div {
+    width: 100px; /* Declare your value. Can be in relative units. */
+    display: inline-block;
+    vertical-align: top;
+}
+#legende:after {
+    content: "";
+    width: 100%;
+    display: inline-block;
 }

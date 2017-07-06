@@ -42,7 +42,7 @@ var WitchMap = function(source, radiusFunction, clusterOffset){
         var stackSize = 0;
         var vectorSource = new ol.source.Vector({});
         for(var i in data){
-            if(data[i].Coordinaten === undefined){
+            if(data[i].Coordinaten === undefined || String(data[i].Coordinaten.lat).trim() === "" || String(data[i].Coordinaten.lon).trim() === ""){
                 continue;
             }
             center = ol.proj.fromLonLat([data[i].Coordinaten.lon*1, data[i].Coordinaten.lat*1]);
