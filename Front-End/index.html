@@ -17,6 +17,7 @@
         </style>
         <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="vendor/d3/d3.layout.cloud.js"></script>
         <script src="https://openlayers.org/en/v4.2.0/build/ol.js" type="text/javascript"></script>
     </head>
     <body>
@@ -28,7 +29,7 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/2.4.3/seedrandom.min.js"></script>
         <div class="jumbotron text-center">
             <h1>The Witch Hunts</h1>
-            <p>A statistical overview of recorded Witch Hunts</p>
+            <p>A Statistical Overview of Recorded Witch Hunts</p>
         </div>
         <div class="row">
             <div id="witch-map" class="col-md-12">
@@ -48,6 +49,12 @@
             </div>
             <div id="witch-table" class="col-md-4"></div>
         </div>
+        <div class="row">
+            <div id="witch-cloud" class="col-md-12">
+                <div id="cloud" class="cloud"></div>
+                <script src="js/TagCloud.js" type="text/javascript"></script>
+            </div>
+        </div>
         <script>
             $("#witch-bar-chart");
             var witch_bar_chart = document.getElementById("witch-bar-chart");
@@ -55,6 +62,7 @@
             witch_bar_chart.setAttribute("style", "height:400px");
             var witch_table = document.getElementById("witch-table");
             var startData;
+            var witchCloud = document.getElementById("witch-cloud");
             var timeline;
             drawTimeline = function(executions){
                 startData = executions;
@@ -65,7 +73,12 @@
                 var witchMap = new WitchMap(new ol.source.OSM());
                 witchMap.onRefreshPush(table_drawer.redrawData);
                 witchMap.init(executions);
+                var cloudWitch= new TagCloud(witchCloud);
+                cloudWitch.drawCloud(executions);
+                cloudWitch.onRefreshPush(table_drawer.redrawData);
             };
+
+
             var dataLoader = new window.DataLoader(drawTimeline);
             dataLoader.loadExecutionsAsyn("all");
             drawGenderSeparated = function(executions){
@@ -85,7 +98,7 @@
                 dataLoader3.loadExecutionsAsyn('allByDeathly');
             }
             function legende(names){
-                var legendeString = "<b>Legende:</b>";
+                var legendeString = "<b>map key:</b>";
                 for(var i = 0; i < names.length; i++){
                     legendeString += '<div><div class="Legende' + (i+1) +'"></div>' + names[i] + '</div>';
                 }
