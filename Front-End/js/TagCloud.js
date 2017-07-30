@@ -1,6 +1,6 @@
-var wordcloud, size = [700, 700];
+var wordcloud, size = [600, 350];
 
-var TagCloud = function (div) {
+var TagCloud = function (div,head) {
     var refreshFunctions = [];
     var witchData;
     function loadedTagCloud(data) {
@@ -15,7 +15,7 @@ var TagCloud = function (div) {
             .padding(2)
             .on("end", draw)
             .start();
-    };
+    }
 
     this.drawCloud = function(data){
         loadedTagCloud(data);
@@ -30,31 +30,29 @@ var TagCloud = function (div) {
     }
 
     function prepareData(data) {
-        var anklageList = [];
-        var count = 0;
+        var wordList = [];
         for(var i = 0; i < data.length;i++){
-           var anklage =  data[i].Anklage.split("|");
-           for (var j = 0; j < anklage.length;j++){
-               var test;
-               index = anklage[j].trim();
-               if(index in anklageList){
-                   test  = {
-                       "text": index,
-                       "size": anklageList[index].size + 1,
+           var witchRow =  data[i][head].split("|");
+           for (var j = 0; j < witchRow.length;j++){
+               var tagCloudValue;
+               var word = witchRow[j].trim();
+               if(word in wordList){
+                   tagCloudValue  = {
+                       "text": word,
+                       "size": wordList[word].size + 1,
                    };
                } else {
-                 test  = {
-                       "text": index,
+                 tagCloudValue  = {
+                       "text": word,
                        "size": 10
                    };
-                 count += 1;
 
                }
-               anklageList[index] = test;
+               wordList[word] = tagCloudValue;
 
            }
         }
-        return toList(anklageList);
+        return toList(wordList);
     }
 
 
@@ -90,7 +88,7 @@ var TagCloud = function (div) {
     function getChoosenData(data){
         var result = [];
         for(var i = 0; i < witchData.length;i++){
-            if(witchData[i].Anklage.indexOf(data) !== -1){
+            if(witchData[i][head].indexOf(data) !== -1){
                result =  result.concat([witchData[i]])
             }
         }
