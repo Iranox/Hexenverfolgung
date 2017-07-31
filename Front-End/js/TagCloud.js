@@ -1,18 +1,20 @@
-var wordcloud, size = [600, 350];
+var wordcloud, size = [800, 250];
 
 var TagCloud = function (div,head) {
     var refreshFunctions = [];
     var witchData;
+    var g,svg;
     function loadedTagCloud(data) {
         witchData = data;
         d3.layout.cloud().size([800, 300])
             .words(prepareData(data))
             .text(function(d) { return d.text; })
-            .rotate(0)
+            .spiral("rectangular")
             .fontSize(function (d) {
                 return d.size;
             })
             .padding(2)
+            .rotate(0)
             .on("end", draw)
             .start();
     }
@@ -58,10 +60,10 @@ var TagCloud = function (div,head) {
 
     function draw(words) {
         wordcloud = d3.select(div)
-            .append("svg")
+        svg = wordcloud.append("svg")
             .attr("width", size[0])
-            .attr("height", size[1])
-            .append("g")
+            .attr("height", size[1]);
+          wordcloud = svg.append("g")
             .attr("transform", "translate(" + (size[0] / 2) + "," + (size[1] / 2) + ")");
 
         wordcloud.selectAll("text")
@@ -81,7 +83,7 @@ var TagCloud = function (div,head) {
             .each(function () {
                 d3.select(this).on("click", function (d) {
                     activateRefresh(getChoosenData(d.text))
-                });
+                }).style("cursor", "pointer");
             });
     }
 

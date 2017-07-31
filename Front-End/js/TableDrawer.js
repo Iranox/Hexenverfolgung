@@ -1,4 +1,5 @@
 var TableDrawer = function(div, data, head){
+    var refreshFunctions = [];
     var table = d3.select(div).append("table");
         table.attr("class", "table-striped table-bordered")
             .attr("style", "width:100%; height: 100%");
@@ -11,6 +12,7 @@ var TableDrawer = function(div, data, head){
     function bodyContent(data){
         table.append("tbody").selectAll("tr").data(data).enter()
             .append("tr")
+            .on("click", function(d){activateRefresh([d]);})
             .html(readHeadData);
     }
     function readHeadData(d){
@@ -35,6 +37,16 @@ var TableDrawer = function(div, data, head){
     this.redrawData = function(data){
         table.select("tbody").remove();
         bodyContent(data);
+    };
+
+    function activateRefresh(data){
+        for(var x in refreshFunctions){
+            refreshFunctions[x](data);
+        }
+    }
+
+    this.onRefreshPush = function(x){
+        refreshFunctions.push(x);
     };
     return this;
 };

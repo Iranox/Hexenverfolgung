@@ -172,7 +172,7 @@ var Timeline = function(div, exData, split){
 
     this.redraw = function(data){
         init(data);
-        activateRefresh(data);
+    //    activateRefresh(data);
     };
 
     this.onRefreshPush = function(x){

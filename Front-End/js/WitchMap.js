@@ -1,6 +1,7 @@
 try{
 
 var WitchMap = function(source, radiusFunction, clusterOffset){
+    var vectorSource;
     var refreshFunctions = [];
     if(radiusFunction === undefined){
         radiusFunction = function(x){return x*100000;};
@@ -19,6 +20,7 @@ var WitchMap = function(source, radiusFunction, clusterOffset){
             ],
             view: new ol.View({
                 center: ol.proj.fromLonLat([-30.0, 45.0]),
+                minZoom : 3,
                 zoom: 3
             })
         });
@@ -36,22 +38,8 @@ var WitchMap = function(source, radiusFunction, clusterOffset){
     }
 
     function createVectorLayer(data){
-        var center;
-        var circles = [];
-        var features = [];
-        var stackSize = 0;
-        var vectorSource = new ol.source.Vector({});
-        for(var i in data){
-            if(data[i].Coordinaten === undefined || String(data[i].Coordinaten.lat).trim() === "" || String(data[i].Coordinaten.lon).trim() === ""){
-                continue;
-            }
-            center = ol.proj.fromLonLat([data[i].Coordinaten.lon*1, data[i].Coordinaten.lat*1]);
-            circles.push(new ol.geom.Point(center));
-            features.push(new ol.Feature(circles[stackSize]));
-            features[stackSize].execution = data[i];
-            stackSize++;
-        }
-        vectorSource.addFeatures(features);
+        vectorSource = new ol.source.Vector({});
+        drawFeatures(data);
         var clusterSource = new ol.source.Cluster({
             distance: 50,
             source: vectorSource
@@ -89,6 +77,25 @@ var WitchMap = function(source, radiusFunction, clusterOffset){
         return vectorLayer;
     }
 
+    function drawFeatures(data){
+        var center;
+        var circles = [];
+        var features = [];
+        var stackSize = 0;
+        vectorSource.clear();
+        for(var i in data){
+            if(data[i].Coordinaten === undefined || String(data[i].Coordinaten.lat).trim() === "" || String(data[i].Coordinaten.lon).trim() === ""){
+                continue;
+            }
+            center = ol.proj.fromLonLat([data[i].Coordinaten.lon*1, data[i].Coordinaten.lat*1]);
+            circles.push(new ol.geom.Point(center));
+            features.push(new ol.Feature(circles[stackSize]));
+            features[stackSize].execution = data[i];
+            stackSize++;
+        }
+        vectorSource.addFeatures(features);
+    }
+
     this.init = function(data){
         createMap(createVectorLayer(data));
     };
@@ -101,6 +108,10 @@ var WitchMap = function(source, radiusFunction, clusterOffset){
 
     this.onRefreshPush = function(x){
         refreshFunctions.push(x);
+    };
+
+    this.redraw = function(data){
+       drawFeatures(data) ;
     };
 
     return this;

@@ -32,21 +32,11 @@
             <p>A Statistical Overview of Recorded Witch Hunts</p>
         </div>
         <div class="row">
-            <div id="witch-map" class="col-md-12">
+            <div id="witch-map" class="col-md-6">
                 <div id="map" class="map"></div>
                 <script src="js/WitchMap.js" type="text/javascript"></script>
             </div>
-        </div>
-        <div class="row">
             <div class="col-md-6">
-                <div id="witch-cloud" ></div>
-                <div id="cloud" class="cloud"></div>
-                <script src="js/TagCloud.js" type="text/javascript"></script>
-            </div>
-            <div id="urteil-cloud" class="col-md-6">
-            </div>
-        <div class="row">
-            <div class="col-md-8">
                 <div id="witch-bar-chart"></div>
                 <div id="bottom-line">
                     <button onclick="timeline.redraw(startData); legende(['processes']);">All</button>
@@ -55,7 +45,17 @@
                     <div id = "legende" style="float:right"></div>
                 </div>
             </div>
+        </div>
+
+        <div class="row">
             <div id="witch-table" class="col-md-4"></div>
+            <div class="col-md-4">
+                <div style="text-align: center"><h3><b>Accusations:</b></h3></div>
+                <div id="witch-cloud"></div>
+                <div style="text-align: center"><h3><b>Verdicts:</b></h3></div>
+                <div id="urteil-cloud"></div>
+                <script src="js/TagCloud.js" type="text/javascript"></script>
+            </div>
         </div>
 
         <script>
@@ -73,16 +73,24 @@
                 timeline = new Timeline(witch_bar_chart, executions);
                 var table_drawer = new TableDrawer(witch_table, executions, [["Name",  ["Vorname", "Nachname"]],["Jahr", ["Jahr"]]]);
                 timeline.onRefreshPush(table_drawer.redrawData);
+                timeline.onRefreshPush(timeline.redraw);
                 legende(['processes']);
                 var witchMap = new WitchMap(new ol.source.OSM());
                 witchMap.onRefreshPush(table_drawer.redrawData);
+                witchMap.onRefreshPush(timeline.redraw);
                 witchMap.init(executions);
+                timeline.onRefreshPush(witchMap.redraw);
                 var cloudWitch= new TagCloud(witchCloud,'Anklage');
                 cloudWitch.drawCloud(executions);
                 cloudWitch.onRefreshPush(table_drawer.redrawData);
+                cloudWitch.onRefreshPush(timeline.redraw);
+                cloudWitch.onRefreshPush(witchMap.redraw);
                 var cloudUrteil= new TagCloud(witchCloudUrteil,'Urteilsspruch');
                 cloudUrteil.drawCloud(executions);
-                cloudUrteil.onRefreshPush(table_drawer.redrawData)
+                cloudUrteil.onRefreshPush(table_drawer.redrawData);
+                cloudUrteil.onRefreshPush(timeline.redraw);
+                cloudUrteil.onRefreshPush(witchMap.redraw);
+                table_drawer.onRefreshPush(witchMap.redraw);
             };
 
 
